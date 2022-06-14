@@ -248,5 +248,20 @@ namespace Petadopt.Controllers
             //return Content(blobSavePath);
 
         }
+
+        [HttpGet, ActionName("SendBlob")]
+        public async Task<IActionResult> PostBlob(string image) //movies/SendBlob?image=rex.png
+        {
+            var clientAccessKey = "DefaultEndpointsProtocol=https;AccountName=storagepetadopt;AccountKey=ZYgb1jpti/Nj3FA2kj1xsoWhRa4GPRIHxj92uTv1Fqo+gl2u7FVP6CiSNJzxevVi/DNmiZTAY5WH+ASt8OL1gQ==;EndpointSuffix=core.windows.net";
+            var client = new BlobServiceClient(clientAccessKey);
+            var imagesContainer = client.GetBlobContainerClient("images");
+            var blob = imagesContainer.GetBlobClient(image);
+
+            blob.DeleteIfExists();
+            var imgFullPath = Path.Combine(_webHostEnvironment.ContentRootPath, "AppData", image);
+            await blob.UploadAsync(imgFullPath);
+
+            return Content(image + " został przesłany");
+        }
     }
 }
