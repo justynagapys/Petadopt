@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Petadopt.Models;
+using System.IO;
 
 namespace Petadopt.Controllers
 {
     public class PetsController : Controller
     {
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
         private readonly petadoptContext _context = new petadoptContext();
 
         /*public PetsController(petadoptContext context)
@@ -18,12 +22,29 @@ namespace Petadopt.Controllers
             _context = context;
         }*/
 
+        public PetsController(IWebHostEnvironment webHostEnvironment)
+        {
+            _webHostEnvironment = webHostEnvironment;
+        }
+
         // GET: Pets
         public async Task<IActionResult> Index()
         {
-              return _context.Pets != null ? 
-                          View(await _context.Pets.ToListAsync()) :
-                          Problem("Entity set 'petadoptContext.Pets'  is null.");
+            var pets = await _context.Pets.ToListAsync();
+            var petsWithPhotos = from p in pets
+                                 select new Pet
+                                 {
+                                     Id = p.Id,
+                                     Picture = getBlobAsBase64(p.Picture),
+                                     Name = p.Name,
+                                     Type = p.Type,
+                                     Age = p.Age,
+                                     Gender = p.Gender,
+                                     Size = p.Size,
+                                     Coat = p.Coat,
+                                     Description = p.Description
+                                 };
+              return View(petsWithPhotos);
         }
 
         // GET: Pets/Details/5
@@ -157,6 +178,75 @@ namespace Petadopt.Controllers
         private bool PetExists(int id)
         {
           return (_context.Pets?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        private string getBlobAsBase64(string id)
+        {
+            var clientAccessKey = "DefaultEndpointsProtocol=https;AccountName=storagepetadopt;AccountKey=ZYgb1jpti/Nj3FA2kj1xsoWhRa4GPRIHxj92uTv1Fqo+gl2u7FVP6CiSNJzxevVi/DNmiZTAY5WH+ASt8OL1gQ==;EndpointSuffix=core.windows.net";
+            var client = new BlobServiceClient(clientAccessKey);
+
+            var imagesContainer = client.GetBlobContainerClient("images");
+            var blob = imagesContainer.GetBlobClient(id);
+
+            if (!blob.Exists())
+                return id;
+
+            var blobMimeType = blob.GetProperties().Value.ContentType;
+
+            var imageBinary = blob.DownloadContent().Value.Content.ToArray();
+            var imageBase64 = Convert.ToBase64String(imageBinary);
+
+            return imageBase64;
+        }
+
+        [HttpGet, ActionName("BlobBase64")]
+        public async Task<IActionResult> GetBlobBase64()
+        {
+            var clientAccessKey = "DefaultEndpointsProtocol=https;AccountName=storagepetadopt;AccountKey=ZYgb1jpti/Nj3FA2kj1xsoWhRa4GPRIHxj92uTv1Fqo+gl2u7FVP6CiSNJzxevVi/DNmiZTAY5WH+ASt8OL1gQ==;EndpointSuffix=core.windows.net";
+            var client = new BlobServiceClient(clientAccessKey);
+
+            var imagesContainer = client.GetBlobContainerClient("images");
+            var blob = imagesContainer.GetBlobClient("rex.png");
+
+            var blobMimeType = blob.GetProperties().Value.ContentType;
+
+            var imageBinary = blob.DownloadContent().Value.Content.ToArray();
+            var imageBase64 = Convert.ToBase64String(imageBinary);
+
+            return Content(imageBase64);
+
+        }
+
+        [HttpGet, ActionName("Blob")]
+        public async Task<IActionResult> GetBlob() //pets/blob
+        {
+            var clientAccessKey = "DefaultEndpointsProtocol=https;AccountName=storagepetadopt;AccountKey=ZYgb1jpti/Nj3FA2kj1xsoWhRa4GPRIHxj92uTv1Fqo+gl2u7FVP6CiSNJzxevVi/DNmiZTAY5WH+ASt8OL1gQ==;EndpointSuffix=core.windows.net";
+            var client = new BlobServiceClient(clientAccessKey);
+
+            var imagesContainer = client.GetBlobContainerClient("images");
+            var blob = imagesContainer.GetBlobClient("rex.png");
+
+            var blobMimeType = blob.GetProperties().Value.ContentType; //type of blob
+
+            var imageBinary = blob.DownloadContent().Value.Content.ToArray();
+            var imageBase64 = Convert.ToBase64String(imageBinary);
+
+            return File(blob.DownloadContent().Value.Content.ToArray(), blobMimeType); //return type with the file to browser
+
+            //var serverRootPath = _webHostEnvironment.ContentRootPath;
+            //var blobSavePath = Path.Combine(serverRootPath, "AppData", blob.Name);
+
+            //save
+            //var streamWrite = System.IO.File.OpenWrite(blobSavePath); //open file
+            //blob.DownloadTo(streamWrite);
+            //streamWrite.Dispose();
+
+            //Read
+            //var streamRead = System.IO.File.OpenRead(blobSavePath);
+            //return File(streamRead, blobMimeType);
+
+            //return Content(blobSavePath);
+
         }
     }
 }

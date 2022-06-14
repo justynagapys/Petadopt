@@ -266,3 +266,8 @@ C:\Users\justy\OneDrive\Pulpit\Petadopt\Petadopt\bin\Debug\net6.0\zh-Hant\Micros
 C:\Users\justy\OneDrive\Pulpit\Petadopt\Petadopt\bin\Debug\net6.0\runtimes\win-arm\lib\net6.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\justy\OneDrive\Pulpit\Petadopt\Petadopt\bin\Debug\net6.0\runtimes\win-arm64\lib\net6.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\justy\OneDrive\Pulpit\Petadopt\Petadopt\obj\Debug\net6.0\Petadopt.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\justy\OneDrive\Pulpit\Petadopt\Petadopt\bin\Debug\net6.0\Azure.Core.dll
+C:\Users\justy\OneDrive\Pulpit\Petadopt\Petadopt\bin\Debug\net6.0\Azure.Storage.Blobs.dll
+C:\Users\justy\OneDrive\Pulpit\Petadopt\Petadopt\bin\Debug\net6.0\Azure.Storage.Common.dll
+C:\Users\justy\OneDrive\Pulpit\Petadopt\Petadopt\bin\Debug\net6.0\System.IO.Hashing.dll
+C:\Users\justy\OneDrive\Pulpit\Petadopt\Petadopt\bin\Debug\net6.0\System.Memory.Data.dll
