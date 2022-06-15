@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="PetadoptWorkerRole" generation="1" functional="0" release="0" Id="ad4d6e20-e998-4931-a002-f2b7af44fd56" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="PetadoptWorkerRole" generation="1" functional="0" release="0" Id="4c8fac60-fc9b-46f9-a05d-b0f5444f59f2" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="PetadoptWorkerRoleGroup" generation="1" functional="0" release="0">
       <settings>
