@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -71,8 +72,21 @@ namespace NewPet
                 var message = await newpetsQueue.ReceiveMessageAsync(); //downoald for 30 seconds without delete
                 var messageContent = message.Value.Body;
 
-                //Send email
+                /*//Send email
+                string to = "gabi1014@op.pl";
+                string from = "gabi1014@op.pl";
+                MailMessage mail = new MailMessage(from, to);
+                mail.Subject = "Another pet in our shelter!";
+                mail.Body = "New pet is looking for a home!";
 
+                SmtpClient mailClient = new SmtpClient("smtp.poczta.onet.pl")
+                {
+                    Port = 465,
+                    Credentials = new NetworkCredential(from, "haslo"),
+                    EnableSsl = true
+                };
+
+                mailClient.Send(mail);*/
 
                 //Delete
                 newpetsQueue.DeleteMessageAsync(message.Value.MessageId, message.Value.PopReceipt);

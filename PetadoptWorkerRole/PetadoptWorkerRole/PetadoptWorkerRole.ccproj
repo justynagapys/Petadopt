@@ -50,9 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NewPetContent\" />
+    <Folder Include="Profiles" />
   </ItemGroup>
   <ItemGroup>
     <DiagnosticsConfiguration Include="NewPetContent\diagnostics.wadcfgx" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishProfile Include="Profiles\newpetadopt.azureRMPubxml" />
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>
