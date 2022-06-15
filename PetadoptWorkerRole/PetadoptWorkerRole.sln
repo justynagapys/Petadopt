@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "PetadoptWorkerRole", "PetadoptWorkerRole\PetadoptWorkerRole.ccproj", "{0AAAD3AC-E3A0-4464-BE2B-56EB5E12E47F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewPet", "NewPet\NewPet.csproj", "{5FE0B46F-E196-4DC3-96D2-6D721B0F1EF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0AAAD3AC-E3A0-4464-BE2B-56EB5E12E47F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AAAD3AC-E3A0-4464-BE2B-56EB5E12E47F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AAAD3AC-E3A0-4464-BE2B-56EB5E12E47F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AAAD3AC-E3A0-4464-BE2B-56EB5E12E47F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FE0B46F-E196-4DC3-96D2-6D721B0F1EF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FE0B46F-E196-4DC3-96D2-6D721B0F1EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FE0B46F-E196-4DC3-96D2-6D721B0F1EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FE0B46F-E196-4DC3-96D2-6D721B0F1EF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {228CE5D0-7F88-4758-9B65-C9D96677F865}
+	EndGlobalSection
+EndGlobal
