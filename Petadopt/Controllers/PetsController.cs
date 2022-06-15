@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Petadopt.Models;
 using System.IO;
+using Azure.Storage.Queues;
 
 namespace Petadopt.Controllers
 {
@@ -82,6 +83,14 @@ namespace Petadopt.Controllers
             {
                 _context.Add(pet);
                 await _context.SaveChangesAsync();
+
+                //Do kolejki
+                var clientAccessKey = "DefaultEndpointsProtocol=https;AccountName=storagepetadopt;AccountKey=ZYgb1jpti/Nj3FA2kj1xsoWhRa4GPRIHxj92uTv1Fqo+gl2u7FVP6CiSNJzxevVi/DNmiZTAY5WH+ASt8OL1gQ==;EndpointSuffix=core.windows.net";
+                var client = new QueueServiceClient(clientAccessKey);
+                //client.CreateQueue("pets"); //create queue
+                var newpetsQueue = client.GetQueueClient("newpet");
+                await newpetsQueue.SendMessageAsync(pet.Name + " is looking for a new home!", timeToLive: new TimeSpan(3, 0, 0, 0, 0));                
+
                 return RedirectToAction(nameof(Index));
             }
             return View(pet);

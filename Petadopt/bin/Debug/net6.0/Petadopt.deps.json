@@ -9,6 +9,7 @@
       "Petadopt/1.0.0": {
         "dependencies": {
           "Azure.Storage.Blobs": "12.12.0",
+          "Azure.Storage.Queues": "12.10.0",
           "Microsoft.EntityFrameworkCore": "6.0.6",
           "Microsoft.EntityFrameworkCore.Design": "6.0.6",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.5",
@@ -58,6 +59,19 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {
             "assemblyVersion": "12.11.0.0",
             "fileVersion": "12.1100.22.25202"
+          }
+        }
+      },
+      "Azure.Storage.Queues/12.10.0": {
+        "dependencies": {
+          "Azure.Storage.Common": "12.11.0",
+          "System.Memory.Data": "1.0.2",
+          "System.Text.Json": "5.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.Storage.Queues.dll": {
+            "assemblyVersion": "12.10.0.0",
+            "fileVersion": "12.1000.22.25202"
           }
         }
       },
@@ -2355,6 +2369,13 @@
       "sha512": "sha512-BPZ1JwYvehHGoTSXhXfAmwtFYejJghE6dkKvpZtPIL0DulzSIJdll9OZI+h5W+3wLYK0yn5hc1r6mvId0q4npA==",
       "path": "azure.storage.common/12.11.0",
       "hashPath": "azure.storage.common.12.11.0.nupkg.sha512"
+    },
+    "Azure.Storage.Queues/12.10.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RD+rDy2O763jJXpvaOd03I3NSIrGpjq5YPzVkPydXnhMIzvjrv3X6ogDl+QgZs1ssuRcqjCh0RBvaaW6tt2EYw==",
+      "path": "azure.storage.queues/12.10.0",
+      "hashPath": "azure.storage.queues.12.10.0.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",

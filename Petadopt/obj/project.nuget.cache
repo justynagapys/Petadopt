@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "PVhUmCVmpIqXDcoUQMbTzd83zUYZhbjfpY9CgL+87DF3MVk3wtkOQ0R6uarPsIGM/kEWuaFTl5CLr0/Rbx7G+g==",
+  "dgSpecHash": "kNaC/C4iVi8woK6xfCg8bmKLKOUXFjnS3zvTefGgHDercu0N9Jbg6git+IXseQLJjlPCR9gBj35LY0PGm8HKwg==",
   "success": true,
   "projectFilePath": "C:\\Users\\justy\\OneDrive\\Pulpit\\Petadopt\\Petadopt\\Petadopt.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\justy\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\justy\\.nuget\\packages\\azure.storage.blobs\\12.12.0\\azure.storage.blobs.12.12.0.nupkg.sha512",
     "C:\\Users\\justy\\.nuget\\packages\\azure.storage.common\\12.11.0\\azure.storage.common.12.11.0.nupkg.sha512",
+    "C:\\Users\\justy\\.nuget\\packages\\azure.storage.queues\\12.10.0\\azure.storage.queues.12.10.0.nupkg.sha512",
     "C:\\Users\\justy\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\justy\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\justy\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",

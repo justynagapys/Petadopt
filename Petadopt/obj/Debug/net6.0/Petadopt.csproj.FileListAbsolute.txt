@@ -271,3 +271,4 @@ C:\Users\justy\OneDrive\Pulpit\Petadopt\Petadopt\bin\Debug\net6.0\Azure.Storage.
 C:\Users\justy\OneDrive\Pulpit\Petadopt\Petadopt\bin\Debug\net6.0\Azure.Storage.Common.dll
 C:\Users\justy\OneDrive\Pulpit\Petadopt\Petadopt\bin\Debug\net6.0\System.IO.Hashing.dll
 C:\Users\justy\OneDrive\Pulpit\Petadopt\Petadopt\bin\Debug\net6.0\System.Memory.Data.dll
+C:\Users\justy\OneDrive\Pulpit\Petadopt\Petadopt\bin\Debug\net6.0\Azure.Storage.Queues.dll
